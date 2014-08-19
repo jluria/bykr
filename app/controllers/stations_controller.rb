@@ -1,9 +1,8 @@
 class StationsController < ApplicationController
-  include HTTParty
-  base_uri "http://localhost:3000"
+  JSON_FEED = "http://www.citibikenyc.com/stations/json"
 
   def index
-    json = HTTParty.get("http://www.citibikenyc.com/stations/json")
+    json = HTTParty.get(JSON_FEED)
     @stations = json["stationBeanList"]
   end
 end

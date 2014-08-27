@@ -6,6 +6,6 @@ class Station
   end
 
   def self.all
-    StationGateway.new.all
+    StationCollection.new.all
   end
 end

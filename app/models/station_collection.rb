@@ -1,4 +1,4 @@
-class StationGateway
+class StationCollection
   include HTTParty
   base_uri "http://www.citibikenyc.com"
 

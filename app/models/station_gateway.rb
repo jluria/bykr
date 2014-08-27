@@ -5,5 +5,6 @@ class StationGateway
   def all
     json = self.class.get("/stations/json")
     station_list = json["stationBeanList"]
+    station_list.map {|station| Station.new(station)}
   end
 end

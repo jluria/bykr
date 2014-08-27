@@ -4,8 +4,4 @@ class Station
   def initialize(attrs)
     @name = attrs["stationName"]
   end
-
-  def self.all
-    StationCollection.new.all
-  end
 end

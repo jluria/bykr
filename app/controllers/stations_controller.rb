@@ -1,5 +1,5 @@
 class StationsController < ApplicationController
   def index
-    @stations = Station.all
+    @stations = StationCollection.all
   end
 end

@@ -2,6 +2,6 @@
 
 <% @stations.each do |station| %>
   <p>
-    <%= station.address %>
+    <%= link_to station.address, station %>
   </p>
 <% end %>

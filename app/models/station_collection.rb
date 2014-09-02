@@ -2,7 +2,7 @@ class StationCollection
   include HTTParty
   base_uri "http://www.citibikenyc.com"
 
-  def self.all
+  def self.update_from_citibike_api
     new.all
   end
 

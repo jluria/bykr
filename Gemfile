@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 
+gem 'whenever', require: false
 gem 'httparty'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.3'

@@ -4,13 +4,6 @@ class StationsController < ApplicationController
   end
 
   def show
-    stations = StationCollection.all
-    stations.each do |station|
-      if station.id == params[:id]
-        @station = station
-        break
-      end
-    end
-    raise @station.inspect
+    @station = Station.find(params[:id])
   end
 end

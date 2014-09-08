@@ -2,3 +2,21 @@
 
 <%= link_to "Add a favorite location", new_location_path %>
 <%= link_to "Station index", stations_path %>
+
+<h3>Where are you going?</h3>
+
+<%= form_tag(bike_route_path, method: :get) do %>
+  <div>
+    Starting location:
+    <%= select_tag("start_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>
+  </div>
+
+  <div>
+    Destination:
+    <%= select_tag("end_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>
+  </div>
+
+  <div>
+    <%= submit_tag 'Create Route' %>
+  </div>
+<% end %>

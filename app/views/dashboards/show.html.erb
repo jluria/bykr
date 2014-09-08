@@ -5,18 +5,18 @@
 
 <h3>Where are you going?</h3>
 
-<%= form_tag(bike_route_path, method: :get, multipart: true) do %>
-  <p>
+<%= form_tag(bike_route_path, method: :get) do %>
+  <div>
     Starting location:
-    <%= select_tag("starting_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>
-  </p>
+    <%= select_tag("start_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>
+  </div>
 
-  <p>
+  <div>
     Destination:
-    <%= select_tag("ending_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>
-  </p>
+    <%= select_tag("end_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>
+  </div>
 
-  <p>
+  <div>
     <%= submit_tag 'Create Route' %>
-  </p>
+  </div>
 <% end %>

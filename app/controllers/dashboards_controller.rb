@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    @locations = Location.all
+    @locations = current_user.locations.all
   end
 end

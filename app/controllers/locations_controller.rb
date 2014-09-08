@@ -1,11 +1,12 @@
 class LocationsController < ApplicationController
+  before_filter :require_login
+
   def new
     @location = Location.new
   end
 
   def create
-    location = current_user.locations.new(location_params)
-    location.save
+    location = current_user.locations.create(location_params)
     redirect_to dashboard_path
   end
 

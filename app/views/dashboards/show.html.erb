@@ -5,7 +5,7 @@
 
 <h3>Where are you going?</h3>
 
-<%= form_tag(route_path, method: :get, multipart: true) do %>
+<%= form_tag(bike_route_path, method: :get, multipart: true) do %>
   <p>
     Starting location:
     <%= select_tag("starting_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>

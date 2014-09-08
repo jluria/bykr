@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :stations, only: [:index, :show]
   resources :locations, only: [:new, :create]
-  resource :route, only: [:show]
+  resource :bike_route, only: [:show]
 end

@@ -1,6 +1,6 @@
 class BikeRoutesController < ApplicationController
   def show
-    @starting_location = Location.find(params[:starting_location])
-    @ending_location = Location.find(params[:ending_location])
+    @start_location = Location.find(params[:start_location])
+    @end_location = Location.find(params[:end_location])
   end
 end

@@ -2,3 +2,21 @@
 
 <%= link_to "Add a favorite location", new_location_path %>
 <%= link_to "Station index", stations_path %>
+
+<h3>Where are you going?</h3>
+
+<%= form_tag(route_path, method: :get, multipart: true) do %>
+  <p>
+    Starting location:
+    <%= select_tag("starting_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>
+  </p>
+
+  <p>
+    Destination:
+    <%= select_tag("ending_location", options_from_collection_for_select(@locations, "id", "name"), prompt: "Select location") %>
+  </p>
+
+  <p>
+    <%= submit_tag 'Create Route' %>
+  </p>
+<% end %>

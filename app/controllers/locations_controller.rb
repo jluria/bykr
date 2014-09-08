@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    location = current_user.locations.create(location_params)
+    current_user.locations.create(location_params)
     redirect_to dashboard_path
   end
 

@@ -8,9 +8,7 @@ class PreferenceSetsController < ApplicationController
   end
 
   def create
-    preferences = PreferenceSet.new(preference_set_params)
-    preferences.user_id = current_user.id
-    preferences.save
+    current_user.preference_sets.create(preference_set_params)
     redirect_to preference_set_path
   end
 

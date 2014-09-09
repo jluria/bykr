@@ -9,11 +9,12 @@
   <body>
     <div class="nav-bar">
       <% if signed_in? %>
-        <%= link_to "Sign out", session_path, method: :delete %>
-        <%= link_to "My dashboard", dashboard_path %>
+        <%= link_to "Sign Out", session_path, method: :delete %>
+        <%= link_to "My Dashboard", dashboard_path %>
+        <%= link_to "My Profile", current_user %>
       <% else %>
-        <%= link_to "Sign in", new_session_path %>
-        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Sign In", new_session_path %>
+        <%= link_to "Sign Up", new_user_path %>
       <% end %>
     </div>
 

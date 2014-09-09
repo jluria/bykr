@@ -1,0 +1,19 @@
+<h2>Here are the settings for your profile</h2>
+
+<div class="profile-options">
+  <h3>Your current email:</h3> <%= current_user.email %>
+</div>
+
+<div class="profile-options">
+  <h3>The distance I am willing to walk for a bike:</h3> <%= current_user.max_distance_to_station %> miles
+</div>
+
+<div class="profile-options">
+  <h3> The number of bikes I expect at a starting station:</h3> <%= current_user.min_bikes_at_station %> bikes
+</div>
+
+<div class="profile-options">
+ <h3>The number of free docks I expect at an ending station:</h3> <%= current_user.min_free_bike_docks %> docks
+</div>
+
+<%= link_to "Edit My Profile", edit_user_path %>

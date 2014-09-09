@@ -1,0 +1,25 @@
+<%= link_to "Create Preferences", new_preference_set_path %>
+
+<div>
+  The distance I am willing to walk for a bike: <% if @preferences.nil? %>
+                                                  Not defined
+                                                <% else %>
+                                                  <%= @preferences.distance %>
+                                                <% end %>
+</div>
+
+<div>
+  The number of bikes I expect at the departure station: <% if @preferences.nil? %>
+                                                           Not defined
+                                                         <% else %>
+                                                           <%= @preferences.bikes %>
+                                                         <% end %>
+</div>
+
+<div>
+  The number of docks I expect at the arrival station: <% if @preferences.nil? %>
+                                                         Not defined
+                                                       <% else %>
+                                                         <%= @preferences.free_docks %>
+                                                       <% end %>
+</div>

@@ -1,0 +1,20 @@
+<%= form_for @preferences, url: preference_set_path do |form| %>
+  <div>
+  <%= form.label :distance %>
+  <%= form.number_field :distance, step: 0.05 %>
+  </div>
+
+  <div>
+  <%= form.label :bikes %>
+  <%= form.number_field :bikes %>
+  </div>
+
+  <div>
+  <%= form.label :free_docks %>
+  <%= form.number_field :free_docks %>
+  </div>
+
+  <div>
+  <%= form.submit %>
+  </div>
+<% end %>

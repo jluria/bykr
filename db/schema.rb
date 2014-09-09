@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907190834) do
+ActiveRecord::Schema.define(version: 20140909001325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20140907190834) do
     t.string   "name"
     t.integer  "user_id"
   end
+
+  create_table "preference_sets", force: true do |t|
+    t.float    "distance"
+    t.integer  "bikes"
+    t.integer  "free_docks"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "preference_sets", ["user_id"], name: "index_preference_sets_on_user_id", using: :btree
 
   create_table "stations", force: true do |t|
     t.string "address"

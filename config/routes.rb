@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :stations, only: [:index, :show]
   resources :locations, only: [:new, :create]
   resource :bike_route, only: [:show]
+  resource :preference_set
 end

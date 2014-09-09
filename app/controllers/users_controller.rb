@@ -30,7 +30,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :max_distance_to_station, :min_bikes_at_station, :min_free_bike_docks)
+    params.require(:user).permit(
+      :email,
+      :password,
+      :max_distance_to_station,
+      :min_bikes_at_station,
+      :min_free_bike_docks
+    )
   end
 end
 

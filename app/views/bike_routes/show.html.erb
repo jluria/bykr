@@ -1,7 +1,17 @@
-<div>
+<div class="bike-routes-show">
   Stations that meet your preferences near <%= @start_location.name %>:
+  <% @starting_stations.each do |station| %>
+    <div>
+      <%= station.address %>
+    </div>
+  <% end %>
 </div>
 
-<div>
+<div class="bike-routes-show">
   Stations that meet your preferences near <%= @end_location.name %>:
+  <% @ending_stations.each do |station| %>
+    <div>
+      <%= station.address %>
+    </div>
+  <% end %>
 </div>

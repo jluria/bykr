@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 
+gem "geocoder", "~> 1.2.4"
 gem 'whenever', require: false
 gem 'httparty'
 gem 'pg'

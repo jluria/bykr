@@ -9,8 +9,20 @@ class StationCollection
   def all
     json = self.class.get("/stations/json")
     station_list = json["stationBeanList"]
-    station_list.each do |s|
-      station = Station.create(address: s["stAddress1"])
+    create_stations(station_list)
+  end
+
+  private
+
+  def create_stations(station_list)
+    station_list.each do |station|
+      Station.create(
+        address: station["stAddress1"],
+        latitude: station["latitude"],
+        longitude: station["longitude"],
+        bikes: station["availableBikes"],
+        free_docks: station["availableDocks"]
+      )
     end
   end
 end

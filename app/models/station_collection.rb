@@ -10,7 +10,7 @@ class StationCollection
     json = self.class.get("/stations/json")
     station_list = json["stationBeanList"]
     station_list.each do |s|
-      station = Station.create(address: s["stAddress1"])
+      station = Station.create(address: s["stAddress1"], latitude: s["latitude"], longitude: s["longitude"], bikes: s["availableBikes"], free_docks: s["availableDocks"])
     end
   end
 end

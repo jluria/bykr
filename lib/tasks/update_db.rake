@@ -7,7 +7,7 @@ namespace :db do
 
   desc "Populates the station table."
   task populate: :environment do
-    StationCollection.all
+    StationCollection.update_from_citibike_api
     puts "Stations table re-populated"
   end
 

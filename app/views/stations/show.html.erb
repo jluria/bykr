@@ -1,3 +1,19 @@
 <h1>Station</h1>
 
-<%= @station.address %>
+<h3><%= @station.address %></h3>
+
+<div class="station-attributes">
+  Number of bikes available at this station: <%= @station.bikes %>
+</div>
+
+<div class="station-attributes">
+  Number of docks available at this station: <%= @station.free_docks %>
+</div>
+
+<div class="station-attributes">
+  Latitude of this station: <%= @station.latitude %>
+</div>
+
+<div class="station-attributes">
+  Longitude of this station: <%= @station.longitude %>
+</div>

@@ -1,6 +1,6 @@
 <div class="bike-routes-show">
   Stations that meet your preferences near <%= @start_location.name %>:
-  <% @qualifying_stations.each do |station| %>
+  <% @qualifying_starting_stations.each do |station| %>
     <div>
       <%= station.address %>
     </div>
@@ -9,4 +9,9 @@
 
 <div class="bike-routes-show">
   Stations that meet your preferences near <%= @end_location.name %>:
+  <% @qualifying_ending_stations.each do |station| %>
+    <div>
+      <%= station.address %>
+    </div>
+  <% end %>
 </div>

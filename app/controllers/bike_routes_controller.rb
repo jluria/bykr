@@ -3,11 +3,11 @@ class BikeRoutesController < ApplicationController
     @start_location = Location.find(params[:start_location])
     @end_location = Location.find(params[:end_location])
 
-    @qualifying_starting_stations = []
-    qualify_starting_stations(@qualifying_starting_stations)
+    @starting_stations = []
+    qualify_starting_stations(@starting_stations)
 
-    @qualifying_ending_stations = []
-    qualify_ending_stations(@qualifying_ending_stations)
+    @ending_stations = []
+    qualify_ending_stations(@ending_stations)
   end
 
   private

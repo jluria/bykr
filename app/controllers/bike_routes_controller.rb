@@ -7,12 +7,7 @@ class BikeRoutesController < ApplicationController
     qualify_starting_stations(@qualifying_starting_stations)
 
     @qualifying_ending_stations = []
-    stations = Station.all
-    stations.each do |station|
-      if station.free_docks >= current_user.min_free_bike_docks && @end_location.distance_to(station) <= current_user.max_distance_to_station
-        @qualifying_ending_stations << station
-      end
-    end
+    qualify_ending_stations(@qualifying_ending_stations)
   end
 
   private
@@ -21,6 +16,15 @@ class BikeRoutesController < ApplicationController
     stations = Station.all
     stations.each do |station|
       if @start_location.distance_to(station) <= current_user.max_distance_to_station && station.bikes >= current_user.min_bikes_at_station
+        station_collection << station
+      end
+    end
+  end
+
+  def qualify_ending_stations(station_collection)
+    stations = Station.all
+    stations.each do |station|
+      if station.free_docks >= current_user.min_free_bike_docks && @end_location.distance_to(station) <= current_user.max_distance_to_station
         station_collection << station
       end
     end

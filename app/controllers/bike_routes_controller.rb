@@ -21,10 +21,22 @@ class BikeRoutesController < ApplicationController
   end
 
   def qualifying_start_station?(station, location)
-    location.distance_to(station) <= current_user.max_distance_to_station && station.bikes >= current_user.min_bikes_at_station
+    close_enough?(station, location) && enough_bikes?(station, location)
   end
 
   def qualifying_end_station?(station, location)
-    station.free_docks >= current_user.min_free_bike_docks && location.distance_to(station) <= current_user.max_distance_to_station
+    close_enough?(station, location) && enough_docks?(station, location)
+  end
+
+  def close_enough?(station, location)
+    location.distance_to(station) <= current_user.max_distance_to_station
+  end
+
+  def enough_bikes?(station, location)
+    station.bikes >= current_user.min_bikes_at_station
+  end
+
+  def enough_docks?(station, location)
+    station.free_docks >= current_user.min_free_bike_docks
   end
 end

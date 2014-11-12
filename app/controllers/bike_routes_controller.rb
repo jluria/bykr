@@ -2,14 +2,15 @@ class BikeRoutesController < ApplicationController
   def show
     @start_location = Location.find(params[:start_location])
     @end_location = Location.find(params[:end_location])
-    @starting_stations = []
-    @ending_stations = []
+    @starting_stations = qualify_start_stations(@start_location)
+    @ending_stations = qualify_end_stations(@end_location)
 
-    qualify_stations(@starting_stations, @start_location, @ending_stations, @end_location)
+   # qualify_stations(@starting_stations, @start_location, @ending_stations, @end_location)
   end
 
   private
 
+=begin
   def qualify_stations(start_station_collection, start_location, end_station_collection, end_location)
     Station.all.each do |station|
       if qualifying_start_station?(station, start_location)
@@ -19,13 +20,34 @@ class BikeRoutesController < ApplicationController
       end
     end
   end
+=end
 
-  def qualifying_start_station?(station, location)
-    close_enough?(station, location) && enough_bikes?(station)
+  def qualify_start_stations(start_location)
+    collection = []
+    Station.all.each do |station|
+      if close_enough?(station, start_location) && enough_bikes?(station)
+        collection << station
+      end
+    end
+    return collection
   end
 
-  def qualifying_end_station?(station, location)
-    close_enough?(station, location) && enough_docks?(station)
+  def qualify_end_stations(end_location)
+    collection = []
+    Station.all.each do |station|
+      if close_enough?(station, end_location) && enough_docks?(station)
+        collection << station
+      end
+    end
+    return collection
+  end
+
+  def qualifying_start_station?(station, start_location)
+    close_enough?(station, start_location) && enough_bikes?(station)
+  end
+
+  def qualifying_end_station?(station, end_location)
+    close_enough?(station, end_location) && enough_docks?(station)
   end
 
   def close_enough?(station, location)

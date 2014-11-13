@@ -9,11 +9,15 @@ class BikeRoutesController < ApplicationController
   private
 
   def acceptable_start_stations(start_location)
-    Station.all.select { |station| qualifying_start_station?(station, start_location) }
+    Station.all.select do |station|
+      qualifying_start_station?(station, start_location)
+    end
   end
 
   def acceptable_end_stations(end_location)
-    Station.all.select { |station| qualifying_end_station?(station, end_location) }
+    Station.all.select do |station|
+      qualifying_end_station?(station, end_location)
+    end
   end
 
   def qualifying_start_station?(station, start_location)

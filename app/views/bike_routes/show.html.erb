@@ -1,7 +1,5 @@
 <div class="bike-routes-show">
   Stations that meet your preferences near <%= @start_location.name %>:
-  <%= @starting_stations.count %>
-  <%= @ending_stations.count %>
   <% @starting_stations.each do |station| %>
     <div>
       <%= station.address %>
